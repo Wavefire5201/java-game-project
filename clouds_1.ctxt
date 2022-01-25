@@ -1,9 +1,5 @@
 #BlueJ class context
 comment0.target=clouds_1
 comment1.params=
-comment1.target=clouds_1()
-comment2.params=
-comment2.target=void\ act()
-comment3.params=s
-comment3.target=void\ setSpeed(int)
-numComments=4
+comment1.target=void\ act()
+numComments=2

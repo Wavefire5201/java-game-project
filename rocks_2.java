@@ -17,8 +17,9 @@ public class rocks_2 extends Actor
         setLocation(getX() - 4, getY()); 
         if (getX() <= -480)
         {   
-            getWorld().addObject(new rocks_2(), 1440, 270);
-            getWorld().removeObject(this);
+            //getWorld().addObject(new rocks_2(), 1440, 270);
+            //getWorld().removeObject(this);
+            setLocation(1440, 270);
         }
     }
 }

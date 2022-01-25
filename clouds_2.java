@@ -17,8 +17,7 @@ public class clouds_2 extends Actor
         setLocation(getX() - 2, getY()); 
         if (getX() <= -480)
         {   
-            getWorld().addObject(new clouds_2(), 1440, 270);
-            getWorld().removeObject(this);
+            setLocation(1440, 270);
         }
     }
 }

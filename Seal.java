@@ -8,9 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Seal extends Actor
 {
-    private final int gravity = 1;
-    private int velocity;
-    private int value;
+    private final double gravity = 0.5;
+    private double velocity;
+    private double value;
     private void Hero()
     {
         velocity = 0;
@@ -26,7 +26,7 @@ public class Seal extends Actor
     
     private void fall()
     {
-        setLocation(getX(), getY() + velocity);
+        setLocation(getX(), getY() + (int)(velocity));
         if (getY() > getWorld().getHeight() - 60) 
             velocity = 0;
         else
@@ -35,14 +35,14 @@ public class Seal extends Actor
     
     private void jump()
     {
-        velocity = -15;
+        velocity = -14;
     }
     
-    private boolean isTouchingWall() {
-        if (isTouching(Wall.class)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+    //private boolean isTouchingWall() {
+        //if (isTouching(Wall.class)) {
+            //return true;
+        //} else {
+            //return false;
+        //}
+    //}
 }

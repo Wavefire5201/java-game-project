@@ -8,7 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-    private int score;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -31,6 +30,10 @@ public class MyWorld extends World
         addObject(new clouds_4(), 480, 270);
         addObject(new clouds_4(), 1440, 270);
         addObject(new Seal(), 100, 480);
-        addObject(new Label("Score: " + score, 50), 100, 50);
+        addObject(new Label("Score: ", 50), 100, 50);
+        addObject(new ScoreInt(0, 50), 180, 50);
+        addObject(new tree_short(), 990, 500);
+        addObject(new tree_tall(), 1050, 485);
+        addObject(new tree_thicc(), 1150, 480);
     }
 }

@@ -2,28 +2,36 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 
 /**
- * A Label class that allows you to display a textual value on screen.
+ * A ScoreInt class that allows you to display a textual value on screen.
  * 
- * The Label is an actor, so you will need to create it, and then add it to the world
- * in Greenfoot.  If you keep a reference to the Label then you can change the text it
+ * The ScoreInt is an actor, so you will need to create it, and then add it to the world
+ * in Greenfoot.  If you keep a reference to the ScoreInt then you can change the text it
  * displays.  
  *
  * @author Amjad Altadmri 
  * @version 1.1
  */
-public class Label extends Actor
+public class ScoreInt extends Actor
 {
     private String value;
     private int fontSize;
+    private int scoreLength;
     private Color lineColor = Color.BLACK;
     private Color fillColor = Color.WHITE;
     private static final Color transparent = new Color(0,0,0,0);
 
-
+    public void act() {
+        setValue(Double.valueOf(value) + 0.2);
+        if (value.length() > scoreLength) {
+            setLocation(getX() + 8, getY());
+            scoreLength++;
+        }
+    }
+    
     /**
      * Create a new label, initialise it with the int value to be shown and the font size 
      */
-    public Label(int value, int fontSize)
+    public ScoreInt(int value, int fontSize)
     {
         this(Integer.toString(value), fontSize);
     }
@@ -31,7 +39,7 @@ public class Label extends Actor
     /**
      * Create a new label, initialise it with the needed text and the font size 
      */
-    public Label(String value, int fontSize)
+    public ScoreInt(String value, int fontSize)
     {
         this.value = value;
         this.fontSize = fontSize;
@@ -60,6 +68,10 @@ public class Label extends Actor
         updateImage();
     }
     
+    public void setValue(double value) {
+        this.value = Double.toString(round(value, 1));
+        updateImage();
+    }
     /**
      * Sets the line color of the text
      * 
@@ -93,5 +105,14 @@ public class Label extends Actor
     
     public String getValue() {
         return value;
+    }
+    
+    public static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        long factor = (long) Math.pow(10, places);
+        value = value * factor;
+        long tmp = Math.round(value);
+        return (double) tmp / factor;
     }
 }

@@ -8,8 +8,8 @@ public class clouds_1 extends Actor
         if (getX() <= -480)
         {   
             
-            getWorld().addObject(new clouds_1(), 1440, 270);
-            getWorld().removeObject(this);
+            
+            setLocation(1440, 270);
         }
     }
 }

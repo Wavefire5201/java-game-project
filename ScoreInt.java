@@ -21,7 +21,7 @@ public class ScoreInt extends Actor
     private static final Color transparent = new Color(0,0,0,0);
 
     public void act() {
-        setValue(Double.valueOf(value) + 0.1);
+        setValue(Double.valueOf(value) + 0.2);
         if (value.length() > scoreLength) {
             setLocation(getX() + 8, getY());
             scoreLength++;

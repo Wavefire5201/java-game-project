@@ -11,6 +11,7 @@ public class Seal extends Actor
     private final double gravity = 0.5;
     private double velocity;
     private double value;
+    private boolean result;
     private void Hero()
     {
         velocity = 0;
@@ -19,18 +20,21 @@ public class Seal extends Actor
     public void act()
     {
         fall();
-        left();
-        right();
-        death();
-        if (Greenfoot.isKeyDown("space") && getY() > getWorld().getHeight() - 60)
+        if (Greenfoot.isKeyDown("space") && getY() > getWorld().getHeight() - 43)
         jump();
+        if (isTouchingTree()) {
+            // end game
+            getWorld().addObject(new Gameover("Gameover!", 80), getWorld().getWidth() / 2, getWorld().getHeight() / 2);
+            Greenfoot.stop();
+            
+        }
         
     }
     
     private void fall()
     {
         setLocation(getX(), getY() + (int)(velocity));
-        if (getY() > getWorld().getHeight() - 60) 
+        if (getY() > getWorld().getHeight() - 43) 
             velocity = 0;
         else
             velocity += gravity;
@@ -38,39 +42,13 @@ public class Seal extends Actor
     
     private void jump()
     {
-        velocity = -16;
+        velocity = -14;
     }
     
-    private void right()
-    {
-       if(Greenfoot.isKeyDown("right"))
-       {
-           setLocation(getX()+3,getY());
-       }
+    public boolean isTouchingTree() {
+        if (isTouching(hitbox_short.class) || isTouching(hitbox_tall.class) || isTouching(hitbox_thicc.class)) {
+            result = true;
+        } else { result = false; }
+        return result;
     }
-    
-    private void left()
-    {
-       if(Greenfoot.isKeyDown("left"))
-       {
-           setLocation(getX()-3,getY());
-       }
-    }
-    
-    private void death()
-    {
-        if(getOneIntersectingObject(tree_short.class)!=null||getOneIntersectingObject(tree_tall.class)!=null||getOneIntersectingObject(tree_thicc.class)!=null)
-        {
-            getWorld().removeObject(this);
-            Greenfoot.stop();
-        }
-    }
-    
-    //private boolean isTouchingTree() {
-        //if (isTouching(tree_short.class)) {
-            //return true;
-        //} else {
-            //return false;
-        //}
-    //}
 }

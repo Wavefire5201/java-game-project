@@ -2,16 +2,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 
 /**
- * A ScoreInt class that allows you to display a textual value on screen.
+ * A Gameover class that allows you to display a textual value on screen.
  * 
- * The ScoreInt is an actor, so you will need to create it, and then add it to the world
- * in Greenfoot.  If you keep a reference to the ScoreInt then you can change the text it
+ * The Gameover is an actor, so you will need to create it, and then add it to the world
+ * in Greenfoot.  If you keep a reference to the Gameover then you can change the text it
  * displays.  
  *
  * @author Amjad Altadmri 
  * @version 1.1
  */
-public class ScoreInt extends Actor
+public class Gameover extends Actor
 {
     private String value;
     private int fontSize;
@@ -19,19 +19,16 @@ public class ScoreInt extends Actor
     private Color lineColor = Color.BLACK;
     private Color fillColor = Color.WHITE;
     private static final Color transparent = new Color(0,0,0,0);
-
+    
+    
     public void act() {
-        setValue(Double.valueOf(value) + 0.1);
-        if (value.length() > scoreLength) {
-            setLocation(getX() + 8, getY());
-            scoreLength++;
-        }
+        
     }
     
     /**
      * Create a new label, initialise it with the int value to be shown and the font size 
      */
-    public ScoreInt(int value, int fontSize)
+    public Gameover(int value, int fontSize)
     {
         this(Integer.toString(value), fontSize);
     }
@@ -39,7 +36,7 @@ public class ScoreInt extends Actor
     /**
      * Create a new label, initialise it with the needed text and the font size 
      */
-    public ScoreInt(String value, int fontSize)
+    public Gameover(String value, int fontSize)
     {
         this.value = value;
         this.fontSize = fontSize;

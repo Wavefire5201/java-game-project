@@ -9,7 +9,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class tree_short extends Tree
 {
     // dim = 40x28
-    // dim * 2 = 80x56
     /**
      * Act - do whatever the tree_short wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.

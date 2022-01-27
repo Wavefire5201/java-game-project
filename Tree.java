@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Tree extends Actor
 {
+    private int speed;
     /**
      * Act - do whatever the Tree wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -21,9 +22,10 @@ public class Tree extends Actor
         setLocation(getX() - 4, getY()); 
         if (getX() <= -30)
         {   
-            setLocation(990, 500);
+            getWorld().removeObject(this);
         }
+
     }
     
-
+    
 }

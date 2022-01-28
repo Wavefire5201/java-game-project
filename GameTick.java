@@ -2,25 +2,26 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Write a description of class GameTick here.
- * 
- * @author (your name) 
+ *
+ * @author (your name)
  * @version (a version number or a date)
  */
 public class GameTick extends Actor
 {
     private int choice;
     private double tick;
+    private double time;
     public GameTick() {
         GreenfootImage bob = getImage();
         bob.clear();
     }
-    
+
     public void act()
     {
         tick();
         spawnTree();
     }
-    
+
     public void spawnTree() {
         if (choice == 1) {
             getWorld().addObject(new tree_short(), 1200, 513);
@@ -36,14 +37,15 @@ public class GameTick extends Actor
             choice = 0;
         }
     }
-    
+
     private int tick() {
         if (tick >= 1) {
             choice = (int)(Math.random() * 3) + 1;
             tick = 0;
         } else if (tick <= 1) {
             tick += 0.008;
-        }        
+        }
         return choice;
     }
+
 }

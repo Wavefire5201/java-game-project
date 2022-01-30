@@ -9,4 +9,6 @@ comment3.params=
 comment3.target=void\ spawnTree()
 comment4.params=
 comment4.target=int\ tick()
-numComments=5
+comment5.params=
+comment5.target=int\ increaseSpeed()
+numComments=6

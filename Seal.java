@@ -24,9 +24,7 @@ public class Seal extends Actor
         jump();
         if (isTouchingTree()) {
             // end game
-            getWorld().addObject(new Gameover("Gameover!", 80), getWorld().getWidth() / 2, getWorld().getHeight() / 2);
-            getWorld().addObject(new Gameover("Push \"P\" to play again.", 35), getWorld().getWidth() / 2, getWorld().getHeight() - 180);
-            Greenfoot.stop();
+            Greenfoot.setWorld(new Restart());
 
         }
 

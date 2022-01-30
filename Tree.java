@@ -8,38 +8,37 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Tree extends Actor
 {
+    public int time;
+    public int speed;
 
-    private int speed;
-    private int time;
-    /**
-     * Act - do whatever the Tree wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public Tree() {
-        speed = 6;
-        time = 0;
+        speed = 4;
+    }
+
+    public Tree(int s) {
+        speed = s;
     }
     public void act()
     {
-        increaseSpeed();
+        //increaseSpeed();
     }
 
-    public void scroll() {
-        setLocation(getX() - speed, getY());
+    public void scroll(int s) {
+        setLocation(getX() - s, getY());
         if (getX() <= -30)
         {
             getWorld().removeObject(this);
         }
 
-    }
+      }
 
-    public void increaseSpeed() {
-        if (time >= 1) {
-            speed += 10;
-            time = 0;
-        } else if (time <= 1) {
-            time += 0.05;
-        }
-        
-    }
+    // public void increaseSpeed() {
+    //     if (time >= 1) {
+    //         speed += 10;
+    //         time = 0;
+    //     } else if (time <= 1) {
+    //         time += 0.1;
+    //     }
+    //
+    // }
 }

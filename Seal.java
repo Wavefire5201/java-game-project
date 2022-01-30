@@ -1,17 +1,13 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Seal here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
 public class Seal extends Actor
 {
+
     private final double gravity = 0.5;
     private double velocity;
     private double value;
     private boolean result;
+
     private void Hero()
     {
         velocity = 0;
@@ -25,7 +21,6 @@ public class Seal extends Actor
         if (isTouchingTree()) {
             // end game
             Greenfoot.setWorld(new Restart());
-
         }
 
     }
@@ -34,9 +29,12 @@ public class Seal extends Actor
     {
         setLocation(getX(), getY() + (int)(velocity));
         if (getY() > getWorld().getHeight() - 43)
-            velocity = 0;
-        else
-            velocity += gravity;
+        {
+          velocity = 0;
+        } else
+        {
+          velocity += gravity;
+        }
     }
 
     private void jump()
@@ -44,10 +42,10 @@ public class Seal extends Actor
         velocity = -14;
     }
 
-    public boolean isTouchingTree() {
-        if (isTouching(hitbox_short.class) || isTouching(hitbox_tall.class) || isTouching(hitbox_thicc.class)) {
-            result = true;
-        } else { result = false; }
+    public boolean isTouchingTree()
+    {
+        if (isTouching(hitbox_short.class) || isTouching(hitbox_tall.class) || isTouching(hitbox_thicc.class))
+        { result = true; } else { result = false; }
         return result;
     }
 }

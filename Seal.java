@@ -20,7 +20,9 @@ public class Seal extends Actor
         jump();
         if (isTouchingTree()) {
             // end game
+            Greenfoot.playSound("crash.mp3");
             Greenfoot.setWorld(new Restart());
+            
         }
 
     }
